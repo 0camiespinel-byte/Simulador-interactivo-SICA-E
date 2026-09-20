@@ -1,0 +1,23 @@
+FROM composer:2 AS dependencies
+
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader
+
+FROM dunglas/frankenphp:1-php8.4-alpine
+
+WORKDIR /app
+RUN install-php-extensions pdo_mysql
+COPY --from=dependencies /app/vendor ./vendor
+COPY Caddyfile /etc/caddy/Caddyfile
+COPY public ./public
+COPY database ./database
+
+# Vercel inyecta PORT; 80 es el fallback usado por la imagen.
+ENV PORT=80
+ENV SESSION_SAVE_PATH=/tmp/sica-e-sessions
+ENV UPLOADS_PATH=/app/public/uploads
+RUN mkdir -p /tmp/sica-e-sessions /app/public/uploads/students /app/public/uploads/visitors \
+    && chmod -R 777 /tmp/sica-e-sessions /app/public/uploads
+
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
