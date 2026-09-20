@@ -1,0 +1,17 @@
+{
+  "_readme": [
+    "This file locks the project dependencies for reproducible Docker builds.",
+    "See https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies"
+  ],
+  "content-hash": "43be06323c8747f1f53331191b8663a2",
+  "packages": [],
+  "packages-dev": [],
+  "aliases": [],
+  "minimum-stability": "stable",
+  "stability-flags": [],
+  "prefer-stable": false,
+  "prefer-lowest": false,
+  "platform": [],
+  "platform-dev": [],
+  "plugin-api-version": "2.6.0"
+}
