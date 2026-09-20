@@ -1,0 +1,354 @@
+/**
+ * SICA-E · Estilos Específicos para Portales
+ * Portal Visitantes, Portal Administrativo y Portal Docente
+ */
+
+/* ==========================================================
+   PORTAL VISITANTES - KIOSCO Y BIENVENIDA
+   ========================================================== */
+.portal-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+}
+
+.portal-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--wine-light);
+  color: var(--wine);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.portal-hero h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.portal-hero p {
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+/* Tarjetas de Selección de Portal Visitantes */
+.visitor-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.visitor-choice-card {
+  background: #ffffff;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.visitor-choice-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--wine);
+  box-shadow: 0 12px 28px -6px rgba(107, 23, 40, 0.15);
+}
+
+.visitor-choice-card.primary {
+  border-color: var(--wine-border);
+  background: linear-gradient(180deg, #ffffff 0%, var(--wine-light) 100%);
+}
+
+.visitor-choice-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: var(--navy-light);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.visitor-choice-card:hover .visitor-choice-icon {
+  transform: scale(1.08);
+}
+
+.visitor-choice-card.primary .visitor-choice-icon {
+  background: var(--wine);
+  color: #ffffff;
+}
+
+.visitor-choice-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.visitor-choice-card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   CÁMARA WEB / CAPTURA FACIAL
+   ========================================================== */
+.camera-container {
+  background: var(--bg-muted);
+  border: 2px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.camera-preview-box {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000000;
+  box-shadow: var(--shadow-md);
+  border: 3px solid #ffffff;
+}
+
+.camera-preview-box video,
+.camera-preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  background: #1e293b;
+  gap: 0.5rem;
+}
+
+.camera-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+/* ==========================================================
+   ASISTENTE / MASCOTA VIRTUAL
+   ========================================================== */
+.mascot-widget {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  pointer-events: none;
+  max-width: 360px;
+}
+
+.mascot-bubble {
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: 18px 18px 4px 18px;
+  padding: 0.75rem 1.15rem;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  position: relative;
+  animation: bubblePop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  line-height: 1.35;
+}
+
+.mascot-character {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+  animation: mascotFloat 3s ease-in-out infinite;
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================================
+   PORTAL DOCENTE - TOMA DE ASISTENCIA
+   ========================================================== */
+.attendance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+}
+
+.student-card {
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.student-card:hover {
+  border-color: var(--navy-border);
+  box-shadow: var(--shadow-md);
+}
+
+.student-info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.student-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--navy-light);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.student-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-details h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.student-details p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Los 3 botones de estado de asistencia */
+.triad-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.btn-status {
+  padding: 0.45rem 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: #ffffff;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.btn-status:hover {
+  background: var(--bg-muted);
+}
+
+.btn-status.active-presente {
+  background: var(--success);
+  border-color: var(--success);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+}
+
+.btn-status.active-justificada {
+  background: var(--warning);
+  border-color: var(--warning);
+  color: #713f12;
+  box-shadow: 0 2px 6px rgba(234, 179, 8, 0.3);
+}
+
+.btn-status.active-ausente {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3);
+}
+
+/* ==========================================================
+   PORTAL ADMIN - GRAFICOS Y HERRAMIENTAS
+   ========================================================== */
+.chart-container {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+}
+
+.quick-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.search-box {
+  position: relative;
+  min-width: 260px;
+}
+
+.search-box input {
+  padding-left: 2.25rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
