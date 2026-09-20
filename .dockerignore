@@ -1,0 +1,9 @@
+.git
+.github
+.vercel
+.env
+.env.*
+attached_assets
+node_modules
+vendor
+README_VERCEL.md
